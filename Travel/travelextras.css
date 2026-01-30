@@ -1,0 +1,316 @@
+*{
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Sticky Navbar */
+.sticky-navbar {
+  position: fixed;
+  top: 0; /* hidden initially */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: top 0.4s ease;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.sticky-navbar.active {
+  top: 0; /* slide down when active */
+}
+
+.nav-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start ;
+  gap: 100px;
+  margin-top: 20px;
+
+}
+
+.nav-logo {
+  height: 40px;
+  margin-left: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #08a5e3;
+}
+.box{
+  margin-top: 90px;
+  background-color: #133238;
+  padding: 30px;
+  margin-bottom: 30px;
+  height: 310px;
+}
+.table{
+  background-color: white;
+   padding: 30px 40px;
+   border-radius: 8px;
+   margin-left: 200px;
+   width: 1200px;
+}
+.table th{
+  padding: 30px 40px;
+}
+.shade{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* position: absolute; */
+}
+.shadee{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+  width: 65%;
+  height: 200px;
+  margin-top: 20px;
+  position: relative;
+  margin-left: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+      background-color: #133238;
+      color: white;
+      padding: 50px 10%;
+      bottom: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: start;
+      flex-wrap: wrap;
+      gap: 90px;
+    }
+
+    .footer-left img.logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .store-buttons img {
+      width: 160px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .socials {
+      margin-top: 20px;
+    }
+
+    .socials p {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid white;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: #08a5e3;
+      border-color: #08a5e3;
+    }
+
+    .footer-column {
+      min-width: 180px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #08a5e3;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #244c51;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 20px;
+      }
+      .footer-container {
+        flex-direction: column;
+      }
+    }
+
+
+
+
+
+
+
+
+  /* Floating buttons container */
+.floating-buttons {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 999;
+}
+
+/* Chat button - always visible */
+.chat-btn {
+  background-color: #08a5e3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.chat-btn:hover {
+  background-color: #0593ca;
+  transform: scale(1.05);
+}
+
+/* Scroll-to-top button - hidden by default */
+.scroll-top-btn {
+  background-color: #08a5e3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: none; /* Hidden initially */
+  transition: all 0.3s;
+}
+
+.scroll-top-btn:hover {
+  background-color: #0593ca;
+  transform: scale(1.05);
+}

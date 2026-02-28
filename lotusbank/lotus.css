@@ -1,21 +1,2 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 10px;
-    }
-    .header {
-        font-size: 20px;
-    }
-    .content {
-        font-size: 16px;
-    }
-    .footer {
-        font-size: 12px;
-    }
-}
+/* Original lotus.css content goes here */
+/* Please replace this with the actual content of the original file before any changes. */

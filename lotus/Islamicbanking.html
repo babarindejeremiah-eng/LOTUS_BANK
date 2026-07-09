@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Islamic banking</title>
+  <link rel="stylesheet" href="islamicbnk.css">
+  <script src="https://kit.fontawesome.com/0c8728c777.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   2. NAVIGATION HEADER & MOBILE TOGGLE
+   ========================================== */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  width: 100%; 
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  background: transparent;
+}
+
+.navbar li a {
+  padding: 16px 24px;
+  display: block;
+  color: black; 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar ul a:hover, .active {
+  color: #1C219F !important;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #1C219F;
+}
+
+.logo p {
+  font-size: 12px;
+}
+
+.navbar-button {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(253, 253, 253);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1C219F;
+  white-space: nowrap;
+}
+
+.navbar-buttonn {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: rgb(251, 252, 251);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 35px;
+  background: #1C219F;
+  width: auto;
+  margin-top: 20px;
+}
+
+/* Mobile Toggle Hamburger styling */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1C219F;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   3. HERO & PRINCIPLE SECTIONS
+   ========================================== */
+.first {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+  background-color: #fbfcf8;
+}
+
+.first > div {
+  flex: 1;
+}
+
+.parar {
+  text-align: center;
+  padding: 60px 5% 20px;
+}
+
+.para h1 {
+  font-size: clamp(32px, 5vw, 55px);
+  color: #1C219F;
+  margin-bottom: 15px;
+}
+
+.para {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Alternating Feature Grid Sections */
+.second, .third {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 60px 5%;
+}
+
+.third {
+  background-color: #fbfcf8;
+}
+
+.second > div, .second > img,
+.third > div, .third > img {
+  flex: 1;
+}
+
+.second h1, .third h1 {
+  font-size: clamp(28px, 4vw, 47px);
+  line-height: 1.2;
+}
+
+.second p, .third p {
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* ==========================================
+   4. PRODUCTS SECTIONS (SHARIAH BOX)
+   ========================================== */
+.big {
+  background-color: #1c219f1a;
+  padding: 60px 5%;
+  border-radius: 40px;
+  margin: 40px 5%;
+}
+
+.big h1 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.big p {
+  line-height: 1.6;
+}
+
+/* Content rows inside products */
+.fourth, .fff, .jjj, .jjjj, .jjjjj {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.fourth > div, .fourth > img,
+.fff > div, .fff > img,
+.jjj > div, .jjj > img,
+.jjjj > div, .jjjj > img,
+.jjjjj > div, .jjjjj > img {
+  flex: 1;
+}
+
+/* Additional layout sections */
+.lll {
+  padding: 60px 5%;
+}
+
+.lll h1 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.lll p {
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* ==========================================
+   5. MOBILE APP SECTION & FOOTER
+   ========================================== */
+.four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: #1c219f1f;
+  border-radius: 30px;
+  margin: 40px 5%;
+  padding: 40px;
+}
+
+.four > div {
+  flex: 1;
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin-top: 30px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  padding: 12px 24px;
+  border: 2px solid #0026cc; 
+  border-radius: 50px; 
+  color: #0026cc;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+  background-color: #0026cc;
+  color: white;
+}
+
+footer {
+  background-color: rgb(5, 5, 110);
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.88);
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+}
+
+footer > div {
+  flex: 1;
+  min-width: 220px;
+}
+
+.cbn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  padding: 20px 5%;
+  gap: 15px;
+}
+
+.cbn img {
+  width: 30px;
+  height: 30px;
+}
+
+.lastt {
+  background-color: rgb(65, 64, 64);
+  color: white;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* ==========================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .first, .second, .third,
+  .fourth, .fff, .jjj, .jjjj, .jjjjj, .four {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  /* Ensure images match order cleanly when stacked stacked mobile layouts down */
+  .third img, .jjj img, .jjjjj img {
+    order: -1; 
+  }
+
+  .four .store-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+  }
+  
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar li a {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .navbar-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+</style>
+<body>
+  
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../images/LOTUS.svg" alt="Lotus Logo">
+        <p>Licensed by CBN</p>
+      </div>
+      
+      <!-- Hamburger Toggle Icon -->
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="nav-links">
+        <li><a href="lotusCL.html">Home</a></li>
+        <li><a href="bankservlotus.html">Banking Services</a></li>
+        <li><a class="active" href="">Islamic Banking</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="customercare.html">Customer Support</a></li>
+      </ul>
+      <a class="navbar-button" href="">
+        <img src="../images/padlock.png" alt=""> Internet Banking <img src="../images/white-left-arr.png" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="first">
+    <div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <img src="../images/investment.png" alt=""> LOTUS Bank, the smarter way to bank
+      </div>
+      <h1 style="color: #1c219f;">Ethical finance, aligned with your values</h1>
+      <p style="color: gray; font-size: 18px; margin-top: 15px;">Non-interest banking provides financial services that prioritize fairness, transparency, and shared prosperity, ensuring that all transactions are conducted without interest and in adherence to ethical principles.</p>
+      <a class="navbar-buttonn" href="">Open an account <img src="../images/white-left-arr.png" alt=""></a>
+    </div>
+    <div>
+      <img src="../images/financial-fairplay.png" alt="Financial Fairplay">
+    </div>
+  </div>
+
+  <div class="parar">
+    <div class="para">
+      <h1>Our Principles</h1>
+      <p style="color: gray; font-size: 18px;">At LOTUS Bank, we are committed to operating in alignment with the core principles of Islamic banking, ensuring our services are both ethically sound and transparent. Our guiding principles include:</p>
+    </div>
+  </div>
+
+  <div class="second">
+    <img src="../images/prohibition-interest.png" alt="Prohibition of Interest">
+    <div>
+      <h1 style="color: #1c219f;">Prohibition of interest</h1>
+      <p style="color: gray; font-size: 18px;">We do not engage in transactions involving interest. Instead, we provide financial services based on profit-sharing and risk-sharing models, such as Mudarabah and Musharakah, ensuring that both the bank and the customer share in the profits and risks of investments and financing.</p>
+    </div>
+  </div>
+
+  <div class="third">
+    <div>
+      <h1 style="color: #1c219f;">No Uncertainty</h1>
+      <p style="color: gray; font-size: 18px;">We avoid transactions involving excessive uncertainty or ambiguity. Our products and services are designed to be clear and straightforward, with well-defined terms to minimize risk and ensure both parties fully understand their rights and obligations.</p>
+    </div>
+    <img src="../images/no-uncertainty.png" alt="No Uncertainty">
+  </div>
+
+  <div class="second">
+    <img src="../images/gambling.png" alt="Prohibition of Gambling">
+    <div>
+      <h1 style="color: #1c219f;">Prohibition of Gambling</h1>
+      <p style="color: gray; font-size: 18px;">We strictly adhere to the prohibition of Maysir, which refers to gambling or any transaction based on pure speculation. We do not engage in activities that involve high uncertainty, betting, or games of chance. Our financial products are designed to be based on real, tangible assets, and to involve a clear understanding of risks, ensuring that customers are not exposed to unfair speculative activities.</p>
+    </div>
+  </div>
+
+  <div class="third">
+    <div>
+      <h1 style="color: #1c219f;">Asset-Backed Transactions</h1>
+      <p style="color: gray; font-size: 18px;">All of our financial products are backed by tangible assets or services, ensuring that our transactions have real economic value and are not based on speculative or uncertain activities. This principle protects both the bank and the customer from the risks of speculative financial practices.</p>
+    </div>
+    <img src="../images/asset-backed-transaction.png" alt="Asset Backed">
+  </div>
+
+  <div class="second">
+    <img src="../images/justice-equity.png" alt="Justice and Equity">
+    <div>
+      <h1 style="color: #1c219f;">Justice and Equity</h1>
+      <p style="color: gray; font-size: 18px;">Our banking practices are based on principles of justice and fairness, ensuring that all financial dealings are conducted equitably. We strive to uphold the highest standards of integrity, ensuring that no party is unfairly burdened, and promoting an environment where both customers and the bank thrive.</p>
+    </div>
+  </div>
+
+  <div class="third">
+    <div>
+      <h1 style="color: #1c219f;">No Exploitation</h1>
+      <p style="color: gray; font-size: 18px;">We ensure that our financial services do not exploit vulnerable customers. We do not engage in predatory financing practices and ensure that all our offerings are designed to empower our clients, promoting financial inclusion and supporting their long-term economic stability.</p>
+    </div>
+    <img src="../images/no-exploitation.png" alt="No Exploitation">
+  </div>
+
+  <div class="second">
+    <img src="../images/promoting-welfare.png" alt="Promoting Welfare">
+    <div>
+      <h1 style="color: #1c219f;">Promoting Economic Welfare</h1>
+      <p style="color: gray; font-size: 18px;">We are dedicated to the economic well-being of our customers and society. Our services aim to benefit not just the individual but also the broader community, contributing to social and economic development in line with Islamic principles that promote welfare, fairness, and prosperity.</p>
+    </div>
+  </div>
+
+  <div class="third">
+    <div>
+      <h1 style="color: #1c219f;">Risk-Sharing</h1>
+      <p style="color: gray; font-size: 18px;">In Islamic banking, we believe in sharing the risks and rewards of financial transactions. Our financing models are structured so that both the bank and the customer share the risks, promoting fairness and mutual benefit. This prevents the exploitation of one party over the other, which can occur in conventional interest-based systems.</p>
+    </div>
+    <img src="../images/risk-sharing.png" alt="Risk Sharing">
+  </div>
+
+  <div class="second">
+    <img src="../images/ethical-investment.png" alt="Ethical Investment">
+    <div>
+      <h1 style="color: #1c219f;">Ethical Investments</h1>
+      <p style="color: gray; font-size: 18px;">Our operations focus exclusively on investments that comply with Islamic ethics. We avoid any businesses or activities deemed unethical, such as alcohol, gambling, and weapons, ensuring that our services contribute positively to society.</p>
+    </div>
+  </div>
+
+  <div class="third">
+    <div>
+      <h1 style="color: #1c219f;">Sustainability</h1>
+      <p style="color: gray; font-size: 18px;">We are committed to sustainable practices that respect the environment and promote long-term financial stability. Our business strategies integrate ethical and environmentally responsible decisions, reflecting the Islamic value of promoting the common good and protecting natural resources for future generations.</p>
+    </div>
+    <img src="../images/sustainability.png" alt="Sustainability">
+  </div>
+
+  <div class="second">
+    <img src="../images/customer-centric.png" alt="Customer Centric">
+    <div>
+      <h1 style="color: #1c219f;">Customer-Centric Approach</h1>
+      <p style="color: gray; font-size: 18px;">Our commitment to providing exceptional service is rooted in Islamic values of kindness and compassion. We prioritize the needs and well-being of our customers, ensuring that our services are accessible, fair, and supportive of their financial goals.</p>
+    </div>
+  </div>
+
+  <div class="big">
+    <div>
+      <h1 style="color: #1c219f; margin-bottom: 10px;">Products</h1> 
+      <p style="color: #808080; font-size: 18px;">At LOTUS Bank, we offer a wide range of financial products tailored to the needs of our customers, all in compliance with Islamic principles. Our products are categorized into the following:</p>
+    </div>
+    
+    <h2 style="color: #1c219f; font-size: 28px; margin-top: 40px;">Sale-Based Financing Solutions</h2>
+    
+    <div class="fourth">
+      <div>
+        <h3 style="font-size: 20px; font-weight: 500;">Murabaha (Cost-Plus Financing)</h3>
+        <p style="color: #4d4c4c; font-size: 16px; margin-top: 10px; margin-bottom: 25px;">Through our Murabaha financing, the Bank purchases assets on your behalf and sells them to you at a disclosed profit margin. This solution is ideal for asset purchases, allowing you to manage large expenses with transparent payment terms.</p>
+        
+        <h3 style="font-size: 20px; font-weight: 500;">Istisna' (Manufacturing Financing)</h3>
+        <p style="color: #4d4c4c; font-size: 16px; margin-top: 10px;">Our Istisna’ financing supports projects that involve manufacturing or construction. We finance the production of custom goods and deliver them as per your needs, making it an excellent solution for construction projects and large-scale manufacturing orders.</p>
+      </div>
+      <img src="../images/sale-base-financing.png" alt="Sale Base Financing">
+    </div>
+
+    <div class="fff">
+      <img src="../images/baij.png" alt="Deferred Payment">
+      <div>
+        <h3>Bai Muajjal (Deferred Payment Sale)</h3>
+        <p style="color: #333232; margin-top: 10px;">With Bai Muajjal, the Bank can provide goods or assets with a deferred payment option. You receive the asset immediately, with the flexibility to pay at a later date. This solution is especially helpful for businesses and individuals managing cash flow.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+      <h2 style="color: #1c219f; font-size: 28px;">Lease-Based Financing Solutions</h2> 
+      <p style="color: #808080; font-size: 18px; margin-top: 50px;">Our lease-based solutions offer flexible financing options for various asset and service needs, with all arrangements compliant with Islamic leasing principles.</p>
+    </div>
+
+    <div class="jjj"> 
+      <div>
+        <h3 style="font-weight: 500; font-size: 20px;">Ijarah for Service (Service Leasing)</h3>
+        <p style="color: #333232; margin-top: 10px; margin-bottom: 25px;">Our Ijarah for Service product provides a Shariah-compliant way to finance essential services such as education, medical treatment, professional fees, and other personal or business-related services. Under this arrangement, the Bank covers the cost of the required service, allowing you to benefit from the service immediately. In return, you pay a fixed rental fee over an agreed period, with no interest involved.</p>
+        
+        <h3 style="font-weight: 500; font-size: 20px;">Ijarah (Asset Leasing)</h3> 
+        <p style="color: #333232; margin-top: 10px;">With our Ijarah leasing product, the Bank enables you to access the assets you need—whether it’s property, vehicles, or equipment—through a Shariah-compliant leasing arrangement. Under Ijarah, the Bank purchases the asset on your behalf and leases it to you for an agreed rental payment over a fixed period. At the end of the lease period, you may have the option to assume full ownership of the asset through a final transfer agreement.</p>
+      </div>
+      <img src="../images/ijara-woman.png" alt="Ijarah Leasing">
+    </div>
+
+    <div style="margin-top: 50px;">
+      <h2 style="color: #1c219f; font-size: 28px;">Equity/Partnership-Based Solutions</h2> 
+      <p style="color: #808080; font-size: 18px; margin-top: 10px;">Our partnership-based options are structured to foster collaboration and shared growth between you and the Bank.</p>
+    </div>
+
+    <div class="jjjj"> 
+      <img src="../images/musharakah.png" alt="Musharakah">
+      <div>
+        <h3 style="font-weight: 500; font-size: 20px;">Musharakah (Joint Partnership)</h3>
+        <p style="color: #333232; margin-top: 10px; margin-bottom: 25px;">With Musharakah, the Bank partners with you by investing in a project or business, sharing profits according to a pre-agreed ratio. This partnership-based solution supports ventures where both parties contribute resources and expertise, offering you the benefit of shared risk and reward.</p>
+        
+        <h3 style="font-weight: 500; font-size: 20px;">Mudarabah (Profit-Sharing Investment)</h3> 
+        <p style="color: #333232; margin-top: 10px;">The Bank supports customers through Mudarabah savings/investment accounts, where profits from Shariah-compliant investments are shared between the Bank and depositors, ensuring a fair return. This promotes Shariah-compliant business growth.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px;">
+      <h2 style="color: #1c219f; font-size: 28px;">Fee/Service-Based Solutions</h2> 
+      <p style="color: #808080; font-size: 18px; margin-top: 10px;">We understand the value of specialized services, and our fee-based products provide flexibility and support tailored to your needs.</p>
+    </div>
+
+    <div class="jjjjj"> 
+      <div>
+        <h3 style="font-weight: 500; font-size: 20px;">Wakalah (Agency Services)</h3>
+        <p style="color: #333232; margin-top: 10px; margin-bottom: 25px;">Through our Wakalah arrangement, the Bank can act as your agent for various tasks, such as managing investments or handling financial transactions. You benefit from our expertise, while we earn a service fee for efficient management, ensuring transparency and clarity in our dealings.</p>
+        
+        <h3 style="font-weight: 500; font-size: 20px;">Kafalah (Guarantee Services)</h3> 
+        <p style="color: #333232; margin-top: 10px;">As part of our guarantee offerings, we provide Kafalah, a service where the Bank acts as a guarantor to a third party on your behalf. This service is ideal for situations requiring assurance, such as securing contracts or credit facilities, ensuring your interests are safeguarded.</p>
+      </div>
+      <img src="../images/wakalah-woman.png" alt="Wakalah Agent">
+    </div>
+  </div>
+
+  <div class="lll">
+    <div>
+      <h1 style="color: #1c219f;">Other Financing Solutions</h1>
+      <p style="color: #808080; font-size: 18px;">Our additional solutions are designed to provide compassionate and socially responsible support when you need it most.</p>
+    </div>
+    <div style="margin-top: 30px;">
+      <h3 style="font-size: 20px; font-weight: 500; color: #1C219F;">QARD</h3>
+      <p style="color: #808080; font-size: 16px; margin-top: 5px; margin-bottom: 20px;">An interest-free loan provided to customers out of goodwill, promoting social welfare within the community.</p>
+      
+      <h3 style="font-size: 20px; font-weight: 500; color: #1C219F;">KHALAFA</h3>
+      <p style="color: #808080; font-size: 16px; margin-top: 5px;">As part of our guarantee offerings, we provide Kafalah, a service where the Bank acts as a guarantor to a third party on your behalf. This service is ideal for situations requiring assurance, such as securing contracts or credit facilities, ensuring your interests are safeguarded.</p>
+    </div>
+  </div>
+
+  <div class="four">
+    <div>
+      <h1 style="color: #1c219f; font-size: clamp(32px, 5vw, 47px); line-height: 1.2;">Get the LOTUS Mobile App Today!</h1>
+      <p style="font-size: 18px; margin-top: 15px;">Experience seamless banking at your fingertips. Download the LOTUS app now for secure, convenient access.</p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn">
+          <img src="../images/playstore-blue.png" alt="Play Store"> Play Store
+        </a>
+        <a href="#" class="store-btn">
+          <img src="../images/appstore-blue.png" alt="Apple Store"> Apple Store
+        </a>
+      </div>
+    </div>
+    <div>
+      <img src="../images/mobile-mockup.svg" alt="App Mockup">
+    </div>
+  </div>
+
+  <footer>
+    <div class="lotus">
+      <div style="margin-bottom: 20px;"> 
+        <img src="../images/LOTUS_White.svg" alt="Lotus White Logo">
+      </div>
+      <p>We are committed to deepening financial inclusion and broadening the array of non-interest products available to the banked, unbanked, and under-banked population.</p>
+      <div style="margin-top: 20px; font-size: 24px; display: flex; gap: 15px;">
+        <i class="fa-brands fa-x-twitter"></i> 
+        <i class="fa-brands fa-facebook"></i> 
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-linktree"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+    
+    <div class="ccontactus">
+      <h3 style="margin-bottom: 15px;">Contact Us</h3>
+      <p style="line-height: 1.6;">Phone: 0700 5688 72265 (0700 LOTUS BANK) <br>
+        Email: support@lotusbank.com <br>
+        complaints@lotusbank.com <br>
+        39C Ahmed Onibudo Street, Victoria Island, Lagos.</p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Quick Links</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Create Account<br>About us<br>Whistle Blower<br>Anti-money laundering Statement<br>
+        Whistle-blowing Channel<br>2023 Financial Statement<br>2024 AGM Notice<br>
+        2024 AGM Proxy Form<br>2024 AGM Accreditation Form<br>IMS Policy Statement<br>
+        Bank Insider Trading Policy<br>Security Tips<br>Careers
+      </p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Services</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Online Banking<br>USSD Banking<br>eNaira<br>Mobile Banking<br>E-solutions
+      </p>
+    </div>
+  </footer>
+
+  <div class="fixed">
+    <img src="https://www.lotusbank.com/assets/images/icons/bots.png" alt="Chatbot" style="width: 60px;">
+  </div>
+
+  <div class="cbn">
+    <div>© 2026 LOTUS Bank Limited. All Rights Reserved</div>
+    <div>Licensed & regulated by the Central Bank of Nigeria <img src="https://www.lotusbank.com/assets/images/cbn.png" alt="CBN"></div>
+  </div>
+
+  <div class="lastt">
+    <div class="last">Cookie Policy | Manage Cookies | Terms & Privacy policy | Terms & Conditions</div>
+  </div>
+
+  <!-- Responsive Dropdown Script -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+  <script src="scroll.js"></script>
+</body>
+</html>

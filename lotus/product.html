@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="products.css">
+  <script src="https://kit.fontawesome.com/0c8728c777.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   2. NAVIGATION HEADER & MOBILE MENU
+   ========================================== */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  width: 100%;   
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+}
+
+.navbar li a {
+  padding: 16px 24px;
+  display: block;
+  color: black; 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar ul a:hover, .active {
+  color: #1C219F !important;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #1C219F;
+}
+
+.logo p {
+  font-size: 12px;
+}
+
+.navbar-button {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1C219F;
+  white-space: nowrap;
+}
+
+.navbar-buttonn {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 35px;
+  background: #1C219F;
+  width: auto;
+  margin-top: 20px;
+}
+
+/* Mobile Toggle Hamburger styling */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1C219F;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   3. HERO & BANNER LAYOUTS
+   ========================================== */
+.first {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+  background-color: #fbfcf8;
+}
+
+.first > div {
+  flex: 1;
+}
+
+/* ==========================================
+   4. FINANCING PRODUCTS (FLEX ROWS)
+   ========================================== */
+.fourth, .fff, .jjj, .jjjj, .jjjjj {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 5%;
+}
+
+.fourth > div, .fourth > img,
+.fff > div, .fff > img,
+.jjj > div, .jjj > img,
+.jjjj > div, .jjjj > img,
+.jjjjj > div, .jjjjj > img {
+  flex: 1;
+}
+
+.fourth p, .fff p, .jjj p, .jjjj p, .jjjjj p {
+  line-height: 1.6;
+}
+
+/* Shariah Banner Box */
+.big {
+  background-color: #1C219F;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 60px 5%;
+  padding: 40px;
+  border-radius: 30px;
+}
+
+.big > div, .big > img {
+  flex: 1;
+}
+
+.navbar-buttonnnn {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #1C219F;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  background: white;
+  width: auto;
+  margin-top: 30px;
+  gap: 8px;
+}
+
+/* ==========================================
+   5. ACCOUNTS & PRICING GRID CARDS
+   ========================================== */
+.firstt, .oneee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 60px 5%;
+  margin: 30px 5%;
+}
+
+.oneee {
+  background-color: #fbfcf8;
+  border-radius: 30px;
+}
+
+.firstt > div, .firstt > img,
+.oneee > div, .oneee > img {
+  flex: 1;
+}
+
+.firsttt {
+  text-align: left;
+}
+
+.firsttt ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.firsttt li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e6eaff;  
+  color: #0026cc;             
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 20px;         
+  text-transform: uppercase;   
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+/* ==========================================
+   6. MOBILE APP COMPONENT & FOOTER
+   ========================================== */
+.four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: #1c219f1f;
+  border-radius: 30px;
+  margin: 60px 5%;
+  padding: 40px;
+}
+
+.four > div {
+  flex: 1;
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin-top: 30px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  padding: 12px 24px;
+  border: 2px solid #0026cc;
+  border-radius: 50px; 
+  color: #0026cc;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+  background-color: #0026cc;
+  color: white;
+}
+
+footer {
+  background-color: rgb(5, 5, 110);
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.88);
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+}
+
+footer > div {
+  flex: 1;
+  min-width: 220px;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.cbn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  padding: 20px 5%;
+  gap: 15px;
+}
+
+.cbn img {
+  width: 30px;
+  height: 30px;
+}
+
+.lastt {
+  background-color: rgb(65, 64, 64);
+  color: white;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+/* ==========================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================== */
+@media (max-width: 1024px) {
+  .first, .fourth, .fff, .jjj, .jjjj, .jjjjj, 
+  .big, .firstt, .oneee, .four {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .firsttt {
+    text-align: center;
+  }
+
+  .firsttt ul {
+    display: inline-block;
+    text-align: left;
+  }
+
+  /* Stabilize image visual alternation for flipped stacks */
+  .fff img, .jjjj img, .oneee img {
+    order: -1;
+  }
+
+  .four .store-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+  }
+  
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar li a {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .navbar-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+</style>
+<body>
+  
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../images/LOTUS.svg" alt="Lotus Logo">
+        <p>Licensed by CBN</p>
+      </div>
+      
+      <!-- Mobile Navbar Trigger -->
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="nav-links">
+        <li><a href="lotusCL.html">Home</a></li>
+        <li><a href="bankservlotus.html">Banking Services</a></li>
+        <li><a href="Islamicbanking.html">Islamic Banking</a></li>
+        <li><a class="active">Product</a></li>
+        <li><a href="customercare.html">Customer Support</a></li>
+      </ul>
+      <a class="navbar-button" href="">
+        <img src="../images/padlock.png" alt=""> Internet Banking <img src="../images/white-left-arr.png" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="first">
+    <div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <img src="../images/investment.png" alt=""> LOTUS Bank, the smarter way to bank
+      </div>
+      <h1 style="font-size: clamp(32px, 5vw, 48px); color: #1c219f;">Our Products</h1>
+      <p style="font-size: 18px; color: gray; margin-top: 15px;">Manage your day-to-day finances effortlessly with our versatile current account, offering easy access, seamless transactions, and comprehensive support.</p>
+      <a class="navbar-buttonn" href="">Open an account <img src="../images/white-left-arr.png" alt=""></a>
+    </div>
+    <div>
+      <img src="../images/product-banner.png" alt="Product Banner">
+    </div>
+  </div>
+
+  <h1 style="color: #1c219f; font-size: clamp(28px, 4vw, 35px); padding: 40px 5% 0;">Sale-Based Financing Solutions</h1>
+  
+  <div class="fourth">
+    <div>
+      <h3>Murabaha (Cost-Plus Financing)</h3>
+      <p style="color: #4d4c4c; font-size: 16px; margin-top: 10px; margin-bottom: 25px;">Through our Murabaha financing, the Bank purchases assets on your behalf and sells them to you at a disclosed profit margin. This solution is ideal for asset purchases, allowing you to manage large expenses with transparent payment terms.</p>
+      
+      <h3>Istisna' (Manufacturing Financing)</h3>
+      <p style="color: #4d4c4c; font-size: 16px; margin-top: 10px;">Our Istisna’ financing supports projects that involve manufacturing or construction. We finance the production of custom goods and deliver them as per your needs, making it an excellent solution for construction projects and large-scale manufacturing orders.</p>
+    </div>
+    <img src="../images/sale-base-financing.png" alt="Sale Based Financing">
+  </div>
+
+  <div class="fff">
+    <img src="../images/baij.png" alt="Deferred Payment">
+    <div>
+      <h3>Bai Muajjal (Deferred Payment Sale)</h3>
+      <p style="color: #333232; margin-top: 10px;">With Bai Muajjal, the Bank can provide goods or assets with a deferred payment option. You receive the asset immediately, with the flexibility to pay at a later date. This solution is especially helpful for businesses and individuals managing cash flow.</p>
+    </div>
+  </div>
+
+  <div style="padding: 40px 5% 0;">
+    <h1 style="color: #1c219f; font-size: clamp(24px, 4vw, 30px);">Lease-Based Financing Solutions</h1> 
+    <p style="color: #808080; font-size: 18px; margin-top: 10px;">Our lease-based solutions offer flexible financing options for various asset and service needs, with all arrangements compliant with Islamic leasing principles.</p>
+  </div>
+
+  <div class="jjj"> 
+    <div>
+      <h3 style="font-weight: 500; font-size: 20px;">Ijarah for Service (Service Leasing)</h3>
+      <p style="color: gray; margin-top: 10px; margin-bottom: 25px;">Our Ijarah for Service product provides a unique, Shariah-compliant way to finance essential services such as education, medical treatment, professional fees, and other personal or business-related services. Under this arrangement, the Bank covers the cost of the required service, allowing you to benefit from the service immediately. In return, you pay a fixed rental fee over an agreed period, with no interest involved.</p>
+      
+      <h3 style="font-weight: 500; font-size: 20px;">Ijarah (Asset Leasing)</h3> 
+      <p style="color: gray; margin-top: 10px;">With our Ijarah leasing product, the Bank enables you to access the assets you need—whether it’s property, vehicles, or equipment—through a Shariah-compliant leasing arrangement. Under Ijarah, the Bank purchases the asset on your behalf and leases it to you for an agreed rental payment over a fixed period. This structure allows you to utilize the asset without any interest payments, as Ijarah is structured around ethical leasing, not traditional financing.</p>
+    </div>
+    <img src="../images/ijara-woman.png" alt="Ijarah Asset">
+  </div>
+
+  <div style="padding: 40px 5% 0;">
+    <h1 style="color: #1c219f; font-size: clamp(24px, 4vw, 30px);">Equity/Partnership-Based Solutions</h1> 
+    <p style="color: #808080; font-size: 18px; margin-top: 10px;">Our partnership-based options are structured to foster collaboration and shared growth between you and the Bank.</p>
+  </div>
+
+  <div class="jjjj"> 
+    <img src="../images/musharakah.png" alt="Musharakah Row">
+    <div>
+      <h3 style="font-weight: 500; font-size: 20px;">Musharakah (Joint Partnership)</h3>
+      <p style="color: gray; margin-top: 10px; margin-bottom: 25px;">With Musharakah, the Bank partners with you by investing in a project or business, sharing profits according to a pre-agreed ratio. This partnership-based solution supports ventures where both parties contribute resources and expertise, offering you the benefit of shared risk and reward.</p>
+      
+      <h3 style="font-weight: 500; font-size: 20px;">Mudarabah (Profit-Sharing Investment)</h3> 
+      <p style="color: gray; margin-top: 10px;">The Bank supports customers through Mudarabah savings/investment accounts, where profits from Shariah-compliant investments are shared between the Bank and depositors, ensuring a fair return. This promotes Shariah-compliant business growth.</p>
+    </div>
+  </div>
+
+  <div style="padding: 40px 5% 0;">
+    <h1 style="color: #1c219f; font-size: clamp(24px, 4vw, 30px);">Fee/Service-Based Solutions</h1> 
+    <p style="color: #808080; font-size: 18px; margin-top: 10px;">We understand the value of specialized services, and our fee-based products provide flexibility and support tailored to your needs.</p>
+  </div>
+
+  <div class="jjjjj"> 
+    <div>
+      <h3 style="font-weight: 500; font-size: 20px;">Wakalah (Agency Services)</h3>
+      <p style="color: gray; margin-top: 10px; margin-bottom: 25px;">Through our Wakalah arrangement, the Bank can act as your agent for various tasks, such as managing investments or handling financial transactions. You benefit from our expertise, while we earn a service fee for efficient management, ensuring transparency and clarity in our dealings.</p>
+      
+      <h3 style="font-weight: 500; font-size: 20px;">Kafalah (Guarantee Services)</h3> 
+      <p style="color: gray; margin-top: 10px;">As part of our guarantee offerings, we provide Kafalah, a service where the Bank acts as a guarantor to a third party on your behalf. This service is ideal for situations requiring assurance, such as securing contracts or credit facilities, ensuring your interests are safeguarded.</p>
+    </div>
+    <img src="../images/wakalah-woman.png" alt="Wakalah Setup">
+  </div>
+
+  <div class="big">
+    <img src="../images/other-product-img.png" alt="Other Products Overview">
+    <div style="color: white;"> 
+      <h1 style="font-size: clamp(28px, 4vw, 36px);">Other Products</h1>
+      <p style="margin-top: 15px; font-size: 16px; line-height: 1.6;">Explore innovative, Shariah-compliant banking solutions with LOTUS Bank. Our products are designed to meet your financial needs while adhering to Islamic principles. We offer secure, customer-centric services for individuals and businesses. Experience transparent, interest-free banking that empowers your financial growth.</p>
+      <a class="navbar-buttonnnn" href="">Open an account <img src="../images/left-blue-arrrow.png" alt=""></a>
+    </div>
+  </div>
+
+  <!-- SAVINGS ACCOUNT -->
+  <div class="firstt">
+    <img src="../images/muraba-saving.png" alt="Savings Image">
+    <div class="firsttt">
+      <span class="tag">MUDARABAH</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">SAVINGS ACCOUNT</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero opening Balance</li>
+          <li>Unlimited Deposits and Withdrawals</li>
+          <li>Digital Banking access</li>
+          <li>No minimum balance fee</li>
+          <li>Free ATM Withdrawals (First 3 Transactions/month)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Additional Perks</p>
+        <ul>
+          <li>One-Month Free Banking</li>
+          <li>Access to Finance</li>
+          <li>Share in Bank's profits</li>
+          <li>Exclusive Lifestyle privileges</li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+  <!-- PREMIUM EXCLUSIVE -->
+  <div class="oneee">
+    <div class="firsttt">
+      <span class="tag">QARD</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">LOTUS Premium Exclusive accounts</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Exclusive Banking with Zero Opening Balance.</li>
+          <li>Unlimited Deposits and Withdrawals</li>
+          <li>Free Black Card & Cheque Book (first year & first request).</li>
+          <li>Zero Maintenance Fees & Minimum Balance.</li>
+          <li>Dedicated Financial Team & Personalized Service.</li>
+        </ul> 
+      </div>
+    </div>
+    <img src="../images/premium-new.png" alt="Premium Exclusive">
+  </div>
+
+  <!-- DOMICILIARY CURRENT -->
+  <div class="oneee">
+    <div class="firsttt">
+      <span class="tag">QARD</span>
+      <h2 style="color: #1c219f; font-size: 35px; margin-top: 10px;">Domiciliary Current Account</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero opening Balance</li>
+          <li>Unlimited Deposits and Withdrawals</li>
+          <li>Digital Banking access</li>
+          <li>One-Month Free Banking. (exceptions apply)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Additional Perks</p>
+        <ul>
+          <li>Personalized Account Number.</li>
+          <li>Unlimited Access to Digital Services.</li>
+        </ul> 
+      </div>
+    </div>
+    <img src="../images/new-domiciliary.png" alt="Domiciliary Profile">
+  </div>
+
+  <!-- LOTUS SENIORS -->
+  <div class="firstt">
+    <img src="../images/senior.png" alt="Seniors Profile">
+    <div class="firsttt">
+      <span class="tag">MUDARABAH</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">LOTUS Seniors</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero opening Balance</li>
+          <li>Unlimited Transfers & Deposits. (daily limit applies)</li>
+          <li>Free Debit Card, Cheque Book & Digital Banking.</li>
+          <li>Personalized Account Number & Transaction Alerts.</li>
+          <li>Occasional Gifts & Free Banking for 1 Month.</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Additional Perks</p>
+        <ul>
+          <li>Access to Multiple Account Types (Current, Savings, Dom Account, Investment)</li>
+          <li>Free Standing Instructions & Zero Account Charges.</li>
+          <li>Exclusive Benefits for Seniors. (65+ years)</li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+  <!-- LOTUS KIDDIES -->
+  <div class="oneee">
+    <div class="firsttt">
+      <span class="tag">MUDARABAH</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">LOTUS Kiddies</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero opening Balance</li>
+          <li>Unlimited Deposits and Withdrawals</li>
+          <li>Free Debit Card</li>
+          <li>Zero Account Charges & Free Banking for 1 Month</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Parental Controls</p>
+        <ul>
+          <li>Free Standing Instructions from Parent's Account (max N1,000,000)</li>
+          <li>Lodgment of Cheque, Draft, and Dividends (max N1,000,000)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Kid-Friendly Perks</p>
+        <ul>
+          <li>Invitation to Kid Events</li>
+          <li>Eligible for a Prorated Share of the Bank's Profit</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Eligibility</p>
+        <ul>
+          <li>Valid Means of ID for the parent</li>
+          <li>BVN and NIN of the parent (mum or dad or both depends on who will be the signatory)</li>
+          <li>Utility bill showing address (not more than 3 months old)</li>
+          <li>Birth Certificate of the child</li>
+          <li>Passport photo for the child and the parent</li>
+        </ul> 
+      </div>
+    </div>
+    <img src="../images/kids.png" alt="Kiddies Display">
+  </div>
+
+  <!-- LOTUS TEENS -->
+  <div class="firstt">
+    <img src="../images/new-teen.png" alt="Teens Display">
+    <div class="firsttt">
+      <span class="tag">MUDARABAH</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">LOTUS Teens</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero Opening Balance & Maintenance Fees.</li>
+          <li>Unlimited Deposits & Digital Banking Access</li>
+          <li>Free Debit Card & Zero Account Charges.</li>
+          <li>One-Month Free Banking. (exceptions apply)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Parental Controls</p>
+        <ul>
+          <li>Free Standing Instructions from Parent's Account. (max N1,000,000)</li>
+          <li>Lodgment of Cheque, Draft, and Dividends. (max N1,000,000)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Teen-Friendly Perks</p>
+        <ul>
+          <li>Invitation to Teen Events.</li>
+          <li>Eligible for a Prorated Share of the Bank's Profit.</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Eligibility</p>
+        <ul>
+          <li>13-19 years old.</li>
+          <li>Birth Certificate & Legal Guardian's ID required.</li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+
+  <!-- LOTUS UNDERGRAD -->
+  <div class="oneee">
+    <div class="firsttt">
+      <span class="tag">MUDARABAH</span>
+      <h2 style="color: #1c219f; font-size: 29px; margin-top: 10px;">LOTUS Undergrad</h2>
+      <div style="color: gray; margin-top: 15px;">
+        <p style="font-weight: bold; margin-bottom: 10px; color: #1c219f;">Core benefits</p>
+        <ul> 
+          <li>Zero opening Balance & Maintenance Fees.</li>
+          <li>Unlimited Transfers & Deposits. (daily limit applies)</li>
+          <li>Free Debit Card & Digital Banking Access.</li>
+          <li>One-Month Free Banking. (exceptions apply)</li>
+          <li>Free ATM Withdrawals (First 3 Transactions/month)</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Student Perks</p>
+        <ul>
+          <li>Invitation to Student Events</li>
+          <li>Occasional Free Gifts</li>
+          <li>Eligible for a Prorated Share of the Bank's Profit</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Additional Perks</p>
+        <ul>
+          <li>Nigerians living abroad legitimately.</li>
+          <li>Valid ID, Proof of Address, Proof of Source of Funds, and Recent Passport Photograph required.</li>
+        </ul>
+        <p style="font-weight: bold; margin: 20px 0 10px; color: #1c219f;">Eligibility</p>
+        <ul>
+          <li>Age 16-25 years</li>
+          <li>Student of a Tertiary Institution</li>     
+          <li>School ID Card/Admission Letter & Legal Guardian's ID required</li>
+        </ul> 
+      </div>
+    </div>
+    <img src="../images/under-grads.png" alt="Undergrad Profile">
+  </div>
+
+  <div class="four">
+    <div>
+      <h1 style="color: #1c219f; font-size: clamp(32px, 5vw, 47px); line-height: 1.2;">Get the LOTUS Mobile App <br>Today!</h1>
+      <p style="font-size: 18px; margin-top: 15px;">Experience seamless banking at your fingertips. Download the LOTUS app now for secure, convenient access.</p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn">
+          <img src="../images/playstore-blue.png" alt="Play Store"> Play Store
+        </a>
+        <a href="#" class="store-btn">
+          <img src="../images/appstore-blue.png" alt="Apple Store"> Apple Store
+        </a>
+      </div>
+    </div>
+    <div>
+      <img src="../images/mobile-mockup.svg" alt="Mobile Container">
+    </div>
+  </div>
+
+  <footer>
+    <div class="lotus">
+      <div style="margin-bottom: 20px;"> 
+        <img src="../images/LOTUS_White.svg" alt="Lotus White Logo">
+      </div>
+      <p>We are committed to deepening financial inclusion and broadening the array of non-interest products available to the banked, unbanked, and under-banked population.</p>
+      <div style="margin-top: 20px; font-size: 24px; display: flex; gap: 15px;">
+        <i class="fa-brands fa-x-twitter"></i> 
+        <i class="fa-brands fa-facebook"></i> 
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-linktree"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+    
+    <div class="ccontactus">
+      <h3 style="margin-bottom: 15px;">Contact Us</h3>
+      <p style="line-height: 1.6;">Phone: 0700 5688 72265 (0700 LOTUS BANK) <br>
+        Email: support@lotusbank.com <br>
+        complaints@lotusbank.com <br>
+        39C Ahmed Onibudo Street, Victoria Island, Lagos.</p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Quick Links</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Create Account<br>About us<br>Whistle Blower<br>Anti-money laundering Statement<br>
+        Whistle-blowing Channel<br>2023 Financial Statement<br>2024 AGM Notice<br>
+        2024 AGM Proxy Form<br>2024 AGM Accreditation Form<br>IMS Policy Statement<br>
+        Bank Insider Trading Policy<br>Security Tips<br>Careers
+      </p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Services</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Online Banking<br>USSD Banking<br>eNaira<br>Mobile Banking<br>E-solutions
+      </p>
+    </div>
+  </footer>
+
+  <div class="fixed">
+    <img src="https://www.lotusbank.com/assets/images/icons/bots.png" alt="Chatbot Support" style="width: 60px;">
+  </div>
+
+  <div class="cbn">
+    <div>© 2026 LOTUS Bank Limited. All Rights Reserved</div>
+    <div>Licensed & regulated by the Central Bank of Nigeria <img src="https://www.lotusbank.com/assets/images/cbn.png" alt="CBN"></div>
+  </div>
+
+  <div class="lastt">
+    <div class="last">Cookie Policy | Manage Cookies | Terms & Privacy policy | Terms & Conditions</div>
+  </div>
+
+  <!-- Mobile Toggle Script -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+  <script src="scroll.js"></script>
+</body>
+</html>

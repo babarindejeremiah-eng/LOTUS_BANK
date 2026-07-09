@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banking Services</title>
+  <link rel="stylesheet" href="bankser.css">
+  <script src="https://kit.fontawesome.com/0c8728c777.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   2. NAVIGATION HEADER (Primary & Secondary)
+   ========================================== */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  width: 100%;   
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  background: transparent;
+}
+
+.navbar li a {
+  padding: 16px 20px;
+  display: block;
+  color: black; 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar ul a:hover, .active {
+  color: #1C219F !important;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #1C219F;
+}
+
+.logo p {
+  font-size: 12px;
+}
+
+.navbar-button {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1C219F;
+  white-space: nowrap;
+}
+
+/* Mobile Menu Toggle Markup Styling */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1C219F;
+  border-radius: 2px;
+}
+
+/* Secondary Sub-Navbar */
+.navbarr-container {
+  background-color: rgb(235, 245, 255);
+  padding: 0 5%;
+}
+
+.navbarr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  list-style: none;
+  width: 100%;
+}
+
+.navbarr-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbarr-items li {
+  padding: 20px 25px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.srh {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================
+   3. GENERAL COMPONENT STYLES
+   ========================================== */
+button {
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(6, 6, 139);
+  padding: 15px 35px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background-color: #1C219F;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   4. LAYOUT SECTIONS
+   ========================================== */
+.first, .second {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 5%;
+}
+.first p, .second p {
+  max-width: 800px;
+  margin: 15px auto;
+  line-height: 1.6;
+}
+
+.third {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 5%;
+}
+.third > div {
+  flex: 1;
+}
+.ull {
+  list-style: none;
+  margin-bottom: 15px;
+}
+.ull li {
+  color: gray;
+  margin-left: 20px;
+  margin-top: 5px;
+  position: relative;
+}
+.ull li::before {
+  content: "•";
+  color: #1C219F;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+
+.four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: #1c219f1f;
+  border-radius: 30px;
+  margin: 40px 5%;
+  padding: 40px;
+}
+.four > div {
+  flex: 1;
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin-top: 30px;
+}
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  padding: 12px 24px;
+  border: 2px solid #0026cc; 
+  border-radius: 50px; 
+  color: #0026cc;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.store-btn:hover {
+  background-color: #0026cc;
+  color: white;
+}
+
+/* ==========================================
+   5. FOOTER & COMPLIANCE
+   ========================================== */
+footer {
+  background-color: rgb(5, 5, 110);
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.88);
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+}
+footer > div {
+  flex: 1;
+  min-width: 200px;
+}
+footer .lotus p {
+  line-height: 1.6;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.cbn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  padding: 20px 5%;
+  gap: 15px;
+}
+.cbn img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.lastt {
+  background-color: rgb(65, 64, 64);
+  color: white;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+/* ==========================================
+   6. RESPONSIVE MEDIA QUERIES
+   ========================================== */
+
+/* Tablet Layouts (Under 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px 5%;
+  }
+  .navbar ul li a {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+  .third {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .third .ull {
+    text-align: left;
+    max-width: 400px;
+    margin: 15px auto;
+  }
+  .four {
+    flex-direction: column;
+    text-align: center;
+  }
+  .four .store-buttons {
+    justify-content: center;
+  }
+}
+
+/* Mobile Devices (Under 768px) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Show Hamburger Icon */
+  }
+
+  /* Transform top navbar links into mobile overlay menu */
+  .navbar ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+  }
+  
+  /* Class to trigger via JavaScript */
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar li a {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .navbar-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  /* Secondary navigation row breakdown */
+  .navbarr-items {
+    justify-content: center;
+    width: 100%;
+  }
+  .navbarr-items li {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  .srh {
+    display: none; /* Hide search bar token on small mobile screens */
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+</style>
+<body>
+  
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../images/LOTUS.svg" alt="Lotus Logo">
+        <p>Licensed by CBN</p>
+      </div>
+      
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="nav-links">
+        <li><a href="lotusCL.html">Home</a></li>
+        <li><a class="active" href="">Banking Services</a></li>
+        <li><a href="Islamicbanking.html">Islamic Banking</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a href="customercare.html">Customer Support</a></li>
+      </ul>
+      <a class="navbar-button" href="">
+        <img src="../images/padlock.png" alt=""> Internet Banking <img src="../images/white-left-arr.png" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="navbarr-container">
+    <div class="navbarr">
+      <ul class="navbarr-items">
+        <li><img src="../images/personal-icon.png" alt="">Personal Banking</li>
+        <li><img src="https://www.lotusbank.com/assets/images/icons/briefcase-icon.png" alt="">Business Banking</li>
+        <li><img src="../images/digital-icon.png" alt="">Digital Banking</li>
+      </ul>
+      <div class="srh">
+        <img src="../images/bi_search.svg" alt="Search">
+      </div>
+    </div>
+  </div>
+
+  <div class="ppp">
+    <div class="first">
+      <div>
+        <h1>PERSONAL BANKING THAT FLOURISHES WITH YOU</h1>
+        <p>"Experience personalized banking that puts you first—easy, secure, and designed to help you succeed"</p>
+      </div>
+      <div>
+        <button>Get Started <img src="../images/arrow-right-straight.png" alt=""></button>
+      </div>
+      <div style="margin-top: 20px;">
+        <img src="../images/lady-banking-service.png" alt="">
+        <p style="color: gray;">At LOTUS Bank, we offer a range of personal banking products designed to meet your financial needs while adhering to ethical banking principles. Explore our offerings to find the perfect solution for your savings, investments, and day-to-day banking while aligning with your values.</p>
+      </div>
+    </div>
+
+    <div class="second">
+      <div>
+        <h2 style="color: blue;">Why Choose LOTUS Bank Personal Banking?</h2>
+        <p style="color: gray;">At LOTUS Bank, we understand that your financial needs are exceptional. That's why our personal banking solutions are designed to give you the flexibility, convenience, and ethical banking experience you deserve.</p>
+      </div>
+      <div style="margin-top: 20px;">
+        <img src="../images/ai-centere-image.png" alt="">
+      </div>
+    </div>
+
+    <div class="third">
+      <div>
+        <img src="../images/FINANCIAL-JOURNEY.png" alt="">
+      </div>
+      <div>
+        <h2 style="color: blue; margin-bottom: 15px;">Start your financial journey with LOTUS Bank today.</h2>
+        <p style="color: gray; margin-bottom: 20px;">Opening an account with LOTUS Bank is hassle-free and quick. Whether you're opening a basic savings account or opting for premium banking services, we provide an easy onboarding process. You’ll enjoy digital banking access, free debit cards, and personalized support from the very beginning.</p>
+        
+        <ul class="ull">
+          <h3 style="color: blue; font-weight: 500; margin-bottom: 5px;">Benefits</h3>
+          <li>Zero opening balance</li>
+          <li>Free Debit card upon account opening</li>
+          <li>Instant access to digital banking services</li>
+          <li>No hidden charges or account maintenance fee</li>
+        </ul>
+        
+        <ul class="ull">
+          <h3 style="color: blue; font-weight: 500; margin-bottom: 5px;">Eligibility:</h3>
+          <li>Valid means of identification</li>
+          <li>Proof of address.</li>
+          <li>Passport-sized photo.</li>
+        </ul>
+        
+        <button style="margin-top: 15px;">Open your account now <img src="../images/arrow-right-straight.png" alt=""></button>
+      </div>
+    </div>
+
+    <div class="four">
+      <div>
+        <h1 style="color: #1c219f; font-size: clamp(32px, 5vw, 47px); line-height: 1.2;">Get the LOTUS Mobile App Today!</h1>
+        <p style="font-size: 18px; margin-top: 15px;">Experience seamless banking at your fingertips. Download the LOTUS app now for secure, convenient access.</p>
+        <div class="store-buttons">
+          <a href="#" class="store-btn">
+            <img src="../images/playstore-blue.png" alt="Play Store"> Play Store
+          </a>
+          <a href="#" class="store-btn">
+            <img src="../images/appstore-blue.png" alt="Apple Store"> Apple Store
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="../images/mobile-mockup.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="lotus">
+      <div style="margin-bottom: 20px;"> 
+        <img src="../images/LOTUS_White.svg" alt="">
+      </div>
+      <p>We are committed to deepening financial inclusion and broadening the array of non-interest products available to the banked, unbanked, and under-banked population.</p>
+      <div style="margin-top: 20px; font-size: 24px; display: flex; gap: 15px;">
+        <i class="fa-brands fa-x-twitter"></i> 
+        <i class="fa-brands fa-facebook"></i> 
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-linktree"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+    
+    <div class="ccontactus">
+      <h3 style="margin-bottom: 15px;">Contact Us</h3>
+      <p style="line-height: 1.6;">Phone: 0700 5688 72265 (0700 LOTUS BANK) <br>
+        Email: support@lotusbank.com <br>
+        complaints@lotusbank.com <br>
+        39C Ahmed Onibudo Street, Victoria Island, Lagos.</p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Quick Links</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Create Account<br>About us<br>Whistle Blower<br>Anti-money laundering Statement<br>
+        Whistle-blowing Channel<br>2023 Financial Statement<br>2024 AGM Notice<br>
+        2024 AGM Proxy Form<br>2024 AGM Accreditation Form<br>IMS Policy Statement<br>
+        Bank Insider Trading Policy<br>Security Tips<br>Careers
+      </p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Services</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Online Banking<br>USSD Banking<br>eNaira<br>Mobile Banking<br>E-solutions
+      </p>
+    </div>
+  </footer>
+  
+  <div class="fixed">
+    <img src="https://www.lotusbank.com/assets/images/icons/bots.png" alt="Chatbot" style="width: 60px;">
+  </div>
+  
+  <div class="cbn">
+    <div>© 2026 LOTUS Bank Limited. All Rights Reserved</div>
+    <div>Licensed & regulated by the Central Bank of Nigeria <img src="https://www.lotusbank.com/assets/images/cbn.png" alt="CBN Logo"></div>
+  </div>
+  
+  <div class="lastt">
+    <div class="last">Cookie Policy | Manage Cookies | Terms & Privacy policy | Terms & Conditions</div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+  <script src="scroll.js"></script>
+
+</body>
+</html>

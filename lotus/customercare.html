@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Services</title>
+  <link rel="stylesheet" href="customer.css">
+  <script src="https://kit.fontawesome.com/0c8728c777.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fcfcfc;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   2. NAVIGATION HEADER & TOGGLE
+   ========================================== */
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  width: 100%;   
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  background: transparent;
+}
+
+.navbar li a {
+  padding: 16px 20px;
+  display: block;
+  color: black; 
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar ul a:hover, .active {
+  color: #1C219F !important;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #1C219F;
+}
+
+.logo p {
+  font-size: 12px;
+}
+
+.navbar-button {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1C219F;
+  white-space: nowrap;
+}
+
+/* Mobile Menu Hamburger button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #1C219F;
+  border-radius: 2px;
+}
+
+/* ==========================================
+   3. HERO BANNER
+   ========================================== */
+.one {
+  background-image: linear-gradient(rgba(28, 33, 159, 0.6), rgba(28, 33, 159, 0.6)), url(../images/contact-hajia.2378b9e83f42fe78.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  padding: 40px 5%;
+}
+
+.onee {
+  color: white;
+}
+
+.onee p:first-child {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.onee p:last-child {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: bolder;
+  line-height: 1.2;
+}
+
+/* ==========================================
+   4. CONTACT CONTAINER & CARDS
+   ========================================== */
+.jay {
+  padding: 40px 5%;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  flex: 1;
+  border: 1px solid #eef0f6;
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 40px);
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.contact-card h3 {
+  font-size: 13px;
+  color: #8D90CF;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.contact-card h2 {
+  margin-bottom: 15px;
+  color: #1C219F;
+  font-size: clamp(22px, 3vw, 32px);
+}
+
+.contact-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.info-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+.info-item h4 {
+  color: #1C219F;
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* Form Layout Styling */
+.contact-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-card .row {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-card input,
+.contact-card select,
+.contact-card textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.contact-card input:focus,
+.contact-card select:focus,
+.contact-card textarea:focus {
+  border-color: #1C219F;
+}
+
+.contact-card textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-card button {
+  padding: 16px;
+  border: none;
+  background: #1C219F;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 16px;
+  align-self: flex-start;
+  max-width: 100%;
+}
+
+.contact-card button:hover {
+  background: #161a80;
+}
+
+/* ==========================================
+   5. DOWNLOAD APP SECTION
+   ========================================== */
+.four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background-color: #1c219f1f;
+  border-radius: 30px;
+  margin: 40px 5%;
+  padding: 40px;
+}
+
+.four > div {
+  flex: 1;
+}
+
+.store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin-top: 30px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  padding: 12px 24px;
+  border: 2px solid #1C219F; 
+  border-radius: 50px; 
+  color: #1C219F;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+  background-color: #1C219F;
+  color: white;
+}
+
+/* ==========================================
+   6. FOOTER BLOCK
+   ========================================== */
+footer {
+  background-color: rgb(5, 5, 110);
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.88);
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 5%;
+}
+
+footer > div {
+  flex: 1;
+  min-width: 220px;
+}
+
+footer .lotus p {
+  line-height: 1.6;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.cbn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  padding: 20px 5%;
+  gap: 15px;
+}
+
+.cbn img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.lastt {
+  background-color: rgb(65, 64, 64);
+  color: white;
+  padding: 20px 5%;
+  text-align: center;
+}
+
+/* ==========================================
+   7. MEDIA BREAKPOINTS
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .four {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+  .four .store-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+  }
+  
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar li a {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .navbar-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .contact-card .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-card button {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+</style>
+<body>
+  
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../images/LOTUS.svg" alt="Lotus Logo">
+        <p>Licensed by CBN</p>
+      </div>
+      
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="nav-links">
+        <li><a href="lotusCL.html">Home</a></li>
+        <li><a href="bankservlotus.html">Banking Services</a></li>
+        <li><a href="Islamicbanking.html">Islamic Banking</a></li>
+        <li><a href="product.html">Product</a></li>
+        <li><a class="active" href="">Customer Support</a></li>
+      </ul>
+      <a class="navbar-button" href="">
+        <img src="../images/padlock.png" alt=""> Internet Banking <img src="../images/white-left-arr.png" alt="">
+      </a>
+    </div>
+  </nav>
+
+  <div class="one">
+    <div class="onee">
+      <p>CONTACT US</p>
+      <p>Let's make something awesome together</p>
+    </div>
+  </div>
+
+  <div class="jay">
+    <section class="contact-container">
+      <div class="contact-card">
+        <h3>CONTACT US</h3>
+        <h2>Get in touch</h2>
+        <p>
+          We are committed to deepening financial inclusion and broadening the array of non-interest
+          products available to the banked, unbanked, and under-banked population.
+        </p>
+
+        <div class="info-item">
+          <img src="../images/tag-address.png" alt="Phone Icon">
+          <div>
+            <h4>Call us for inquiries</h4>
+            <p>0700568872265 (0700 LOTUS BANK)<br>07001000000<br>02018875045</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <img src="../images/tag-address.png" alt="Email Icon">
+          <div>
+            <h4>Email us for inquiries</h4>
+            <p>
+              support@lotusbank.com<br>
+              complaints@lotusbank.com<br>
+              frauddesk@lotusbank.com
+            </p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <img src="../images/tag-address.png" alt="Location Icon">
+          <div>
+            <h4>Address</h4>
+            <p>39c Ahmed Onibudo Street, Victoria Island, Lagos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <form>
+          <div class="row">
+            <input type="text" placeholder="Your Name" required />
+            <input type="text" placeholder="Account Number" />
+          </div>
+          <div class="row">
+            <input type="email" placeholder="Email Address" required />
+            <input type="tel" placeholder="Phone Number" />
+          </div>
+          <select>
+            <option>Select Feedback Type</option>
+            <option>Inquiry</option>
+            <option>Complaint</option>
+            <option>Fraud Report</option>
+          </select>
+          <textarea placeholder="Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div class="four">
+    <div>
+      <h1 style="color: #1c219f; font-size: clamp(32px, 5vw, 47px); line-height: 1.2;">Get the LOTUS Mobile App Today!</h1>
+      <p style="font-size: 18px; margin-top: 15px;">Experience seamless banking at your fingertips. Download the LOTUS app now for secure, convenient access.</p>
+      <div class="store-buttons">
+        <a href="#" class="store-btn">
+          <img src="../images/playstore-blue.png" alt="Play Store"> Play Store
+        </a>
+        <a href="#" class="store-btn">
+          <img src="../images/appstore-blue.png" alt="Apple Store"> Apple Store
+        </a>
+      </div>
+    </div>
+    <div>
+      <img src="../images/mobile-mockup.svg" alt="App Mockup">
+    </div>
+  </div>
+
+  <footer>
+    <div class="lotus">
+      <div style="margin-bottom: 20px;"> 
+        <img src="../images/LOTUS_White.svg" alt="Lotus White Logo">
+      </div>
+      <p>We are committed to deepening financial inclusion and broadening the array of non-interest products available to the banked, unbanked, and under-banked population.</p>
+      <div style="margin-top: 20px; font-size: 24px; display: flex; gap: 15px;">
+        <i class="fa-brands fa-x-twitter"></i> 
+        <i class="fa-brands fa-facebook"></i> 
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-linktree"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+    
+    <div class="ccontactus">
+      <h3 style="margin-bottom: 15px;">Contact Us</h3>
+      <p style="line-height: 1.6;">Phone: 0700 5688 72265 (0700 LOTUS BANK) <br>
+        Email: support@lotusbank.com <br>
+        complaints@lotusbank.com <br>
+        39C Ahmed Onibudo Street, Victoria Island, Lagos.</p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Quick Links</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Create Account<br>About us<br>Whistle Blower<br>Anti-money laundering Statement<br>
+        Whistle-blowing Channel<br>2023 Financial Statement<br>2024 AGM Notice<br>
+        2024 AGM Proxy Form<br>2024 AGM Accreditation Form<br>IMS Policy Statement<br>
+        Bank Insider Trading Policy<br>Security Tips<br>Careers
+      </p>
+    </div>
+    
+    <div>
+      <h3 style="margin-bottom: 15px;">Services</h3>
+      <p style="line-height: 1.8; font-size: 14px; opacity: 0.9;">
+        Online Banking<br>USSD Banking<br>eNaira<br>Mobile Banking<br>E-solutions
+      </p>
+    </div>
+  </footer>
+
+  <div class="fixed">
+    <img src="https://www.lotusbank.com/assets/images/icons/bots.png" alt="Chatbot" style="width: 60px;">
+  </div>
+
+  <div class="cbn">
+    <div>© 2026 LOTUS Bank Limited. All Rights Reserved</div>
+    <div>Licensed & regulated by the Central Bank of Nigeria <img src="https://www.lotusbank.com/assets/images/cbn.png" alt="CBN"></div>
+  </div>
+
+  <div class="lastt">
+    <div class="last">Cookie Policy | Manage Cookies | Terms & Privacy policy | Terms & Conditions</div>
+  </div>
+
+  <!-- Mobile Toggle Script -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+  <script src="scroll.js"></script>
+</body>
+</html>
